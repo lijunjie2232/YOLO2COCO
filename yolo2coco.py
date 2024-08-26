@@ -553,7 +553,21 @@ if __name__ == "__main__":
     parser.add_argument(
         "-c", "--conf", type=str, default="data.yaml", help="yaml file of dataset"
     )
+    parser.add_argument(
+        "-o", "--output", type=str, default="", help="output directory"
+    )
+    parser.add_argument(
+        "-p", "--parallel", type=int, default=4, help="numbers of multiple thread"
+    )
+    parser.add_argument(
+        "--copy",
+        action="store_true",
+        default=False,
+        help="copy image into new directory, auto disabled while using origin directory as output",
+    )
     args = parser.parse_args()
 
-    converter = YOLO2COCO(args.conf)
+    converter = YOLO2COCO(
+        yaml_file=args.conf, output=args.output, img_cp=args.copy, mt=args.parallel
+    )
     converter()
