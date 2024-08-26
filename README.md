@@ -8,11 +8,43 @@ YOLOv8 dataset to COCO json format
 pip install tqdm opencv-python numpy
 ```
 
+## YOLO v8 Dataset Structure
 
+```shell
+coco/
+│
+├── images/
+│   ├── train/
+│   └── val/
+│
+├── labels/
+│   ├── train/
+│   └── val/
+│
+└── data.yaml
+```
+
+```shell
+#data.yaml of coco dataset in yolo v8 fomat
+
+path: /home/user/dataset/coco/
+train:
+- images/train
+val:
+- images/val
+names:
+  0: person
+  1: bicycle
+  2: car
+  ......
+  77: teddy bear
+  78: hair drier
+  79: toothbrush
+```
 
 ## Usage
 
-[yolo2coco.py](https://github.com/lijunjie2232/YOLO2COCO/blob/master/yolo2coco.py) is for yolov8 dataset and also Partially compatible with yolov5 dataset which uses txt to store images path but is not recommended.
+[yolo2coco.py](https://github.com/lijunjie2232/YOLO2COCO/blob/master/yolo2coco.py) is for yolov8 dataset and also partially compatible with yolov5 dataset which uses txt to store images path but is not recommended.
 
 [yolov5_2_coco.py](https://github.com/lijunjie2232/YOLO2COCO/blob/master/yolov5_2_coco.py) is for yolov5 (old) dataset, and is modified from https://github.com/RapidAI/YOLO2COCO, partially compatible with yaml file
 
