@@ -485,11 +485,11 @@ class YOLO2COCO:
                 x, y = vertex_info[::2], vertex_info[1::2]
                 x_min, y_min, x_max, y_max = min(x), min(y), max(x), max(y)
                 cx, cy, w, h = xyxy2xywh([x_min, y_min, x_max, y_max])
-                segment = (
+                segment = [
                     (np.array(vertex_info).reshape(-1, 2) * np.array([w, h]))
                     .flatten()
                     .tolist()
-                )
+                ]
             elif len(vertex_info) == 4:
                 cx, cy, w, h = [float(i) for i in vertex_info]
             else:
