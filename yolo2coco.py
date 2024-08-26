@@ -248,12 +248,7 @@ class YOLO2COCO:
             total_img.extend(img_list_valid)
         return total_img
 
-    def __call__(self, coco_year=2017):
-        """_summary_
-
-        Args:
-            coco_year (int, optional): _description_. Defaults to 2017.
-        """
+    def __call__(self):
 
         for mode in self.modes:
             # Read the image txt.
@@ -261,7 +256,7 @@ class YOLO2COCO:
 
             # Create the directory of saving the new image.
             if self.img_cp:
-                save_img_dir = self.output_dir / f"{mode}{coco_year}"
+                save_img_dir = self.output_dir / f"{mode}{self.cur_year}"
                 save_img_dir.mkdir(exist_ok=True)
                 LG.info(f"image of new {mode} set will be save into {save_img_dir}")
             else:
@@ -269,7 +264,7 @@ class YOLO2COCO:
                 save_img_dir = None
 
             # Generate json file.
-            save_json_path = self.json_dir / f"instances_{mode}{coco_year}.json"
+            save_json_path = self.json_dir / f"instances_{mode}{self.cur_year}.json"
 
             json_data = self.convert(img_list, mode, save_img_dir=save_img_dir)
 
@@ -553,9 +548,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-c", "--conf", type=str, default="data.yaml", help="yaml file of dataset"
     )
-    parser.add_argument(
-        "-o", "--output", type=str, default="", help="output directory"
-    )
+    parser.add_argument("-o", "--output", type=str, default="", help="output directory")
     parser.add_argument(
         "-p", "--parallel", type=int, default=4, help="numbers of multiple thread"
     )
