@@ -12,9 +12,9 @@ pip install tqdm opencv-python numpy
 
 ## Usage
 
-[yolo2coco.py](https://github.com/lijunjie2232/YOLO2COCO/blob/master/yolo2coco.py) is for yolov8 dataset and also could use for yolov5 dataset which uses txt to store images path but is not recommended.
+[yolo2coco.py](https://github.com/lijunjie2232/YOLO2COCO/blob/master/yolo2coco.py) is for yolov8 dataset and also Partially compatible with yolov5 dataset which uses txt to store images path but is not recommended.
 
-[yolov5_2_coco.py](https://github.com/lijunjie2232/YOLO2COCO/blob/master/yolov5_2_coco.py) is for yolov5 (old) dataset
+[yolov5_2_coco.py](https://github.com/lijunjie2232/YOLO2COCO/blob/master/yolov5_2_coco.py) is for yolov5 (old) dataset, and is modified from https://github.com/RapidAI/YOLO2COCO, partially compatible with yaml file
 
 1. on shell
 ```shell
