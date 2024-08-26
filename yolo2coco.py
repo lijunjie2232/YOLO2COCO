@@ -153,7 +153,7 @@ class YOLO2COCO:
         else:
             if output:
                 self.output_dir = Path(output)
-                if Path(output).samefile(self._root_):
+                if self.output_dir.samefile(self._root_):
                     self.output_dir = (
                         self.output_dir.parent / f"{self.output_dir.stem}_coco_format"
                     )
@@ -171,7 +171,7 @@ class YOLO2COCO:
         self.json_dir = self.output_dir / "annotations"
         self.img_cp = img_cp
         os.makedirs(self.json_dir, exist_ok=True)
-        if self.output_dir == self._root_:
+        if self.output_dir.samefile(self._root_):
             LG.warning(
                 "not copy image for output directory is the same to dataset directory"
             )
