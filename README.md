@@ -51,6 +51,9 @@ names:
 1. on shell
 ```shell
 python yolo2coco.py -c $YAML_FILE
+
+# for more help
+python yolo2coco.py -h
 ```
 
 2.  use python
@@ -58,7 +61,20 @@ python yolo2coco.py -c $YAML_FILE
 ```python
 import subprocess
 
-subprocess.run(["python", "yolo2coco.py", "-c", "data.yaml"], check=True)
+subprocess.run(
+    [
+        "python",
+        "yolo2coco.py",
+        "-c",
+        "coco/data.yaml",
+        "-p",
+        "16",
+        "-o",
+        "coco/coco_split_0_12",
+        "--copy"
+    ],
+    check=True
+)
 ```
 
 3. old script usage for yolov5 dataset
