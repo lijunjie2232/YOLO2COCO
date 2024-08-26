@@ -70,7 +70,7 @@ subprocess.run(
         "-p",
         "16",
         "-o",
-        "coco/coco_split_0_12",
+        "coco_format/",
         "--copy"
     ],
     check=True
