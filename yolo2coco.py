@@ -153,7 +153,7 @@ class YOLO2COCO:
         else:
             if output:
                 self.output_dir = Path(output)
-                if self.output_dir.samefile(self._root_):
+                if self.output_dir.is_dir() and self.output_dir.samefile(self._root_):
                     self.output_dir = (
                         self.output_dir.parent / f"{self.output_dir.stem}_coco_format"
                     )
