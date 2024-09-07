@@ -491,7 +491,9 @@ class YOLO2COCO:
                     .tolist()
                 ]
             elif len(vertex_info) == 4:
-                cx, cy, w, h = [float(i) for i in vertex_info]
+                box = np.array(vertex_info, dtype=np.float64)
+                box[:2] -= box[2:] / 2
+                cx, cy, w, h = box
             else:
                 return [], [], 0
 
