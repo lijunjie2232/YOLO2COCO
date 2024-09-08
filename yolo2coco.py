@@ -41,7 +41,7 @@ def check_yolo_yaml(file):
         data["path"] = Path(file).parent / data["path"]
     assert "names" in data, f"no classes information in yaml file"
     if isinstance(data["names"], list):
-        data["names"] = dict(zip(data["names"], range(len(data["names"]))))
+        data["names"] = dict(zip( range(len(data["names"])), data["names"]))
     assert isinstance(
         data["names"], dict
     ), "classes format not support, please use list in yaml file to store classes information"
